@@ -1,0 +1,16 @@
+{
+  "name": "reverse_proxy_server",
+  "version": "1.0.0",
+  "description": "this is a reverse proxy server",
+  "main": "index.js",
+  "scripts": {
+    "start": "node proxy_server.js",
+    "dev": "nodemon proxy_server.js"
+  },
+  "author": "alapan",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "http-proxy-middleware": "^3.0.5"
+  }
+}

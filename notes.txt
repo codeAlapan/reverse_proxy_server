@@ -1,0 +1,6 @@
+1. incase of proxy server => single user communicates with multiple servers.
+2. incase of reverse proxy server => multiple user communicates with single server.
+3. we can write configurations inside out rev. proxy like
+    a. servers are hosted in which ports.
+    b. if a route is hit,then which server will serve that req.
+    c. if another domain req comes,then which server will serve that.

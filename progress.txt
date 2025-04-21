@@ -1,0 +1,5 @@
+✅ Phase 1 in Express: Features Covered
+ 1.Express-based proxy
+ 2.Forward requests to backend
+ 3.Route-based forwarding (/api)
+
