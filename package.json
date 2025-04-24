@@ -4,13 +4,15 @@
   "description": "this is a reverse proxy server",
   "main": "index.js",
   "scripts": {
-    "start": "node proxy_server.js",
-    "dev": "nodemon proxy_server.js"
+    "start": "node src/proxy_server.js",
+    "dev": "nodemon src/proxy_server.js"
   },
   "author": "alapan",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "express": "^5.1.0",
-    "http-proxy-middleware": "^3.0.5"
+    "http-proxy-middleware": "^3.0.5",
+    "jsonwebtoken": "^9.0.2"
   }
 }

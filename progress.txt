@@ -3,3 +3,16 @@
  2.Forward requests to backend
  3.Route-based forwarding (/api)
 
+✅ Phase 2 Milestone:
+ Auth system using cookie + JWT
+ Dummy login route
+ /protected route
+ Token stored in cookies
+
+🔜 Phase 3 Preview: (Advanced Stuff)
+Next phase hum laenge:
+
+✅ Rate Limiting (DDOS se bachav)
+🌀 Load Balancing with multiple backends
+🧠 Caching (optional Redis/Memory)
+🔒 HTTPS support (for production)
