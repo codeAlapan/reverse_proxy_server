@@ -4,15 +4,22 @@
   "description": "this is a reverse proxy server",
   "main": "index.js",
   "scripts": {
-    "start": "node src/proxy_server.js",
-    "dev": "nodemon src/proxy_server.js"
+    "server-a": "nodemon src/backend_server/indexA.js",
+    "server-b": "nodemon src/backend_server/indexB.js",
+    "server-c": "nodemon src/backend_server/indexC.js",
+    "proxy": "nodemon src/proxy_server/proxy_server.js",
+    "dev": "concurrently \"npm run server-a\" \"npm run server-b\" \"npm run server-c\" \"npm run proxy\""
   },
   "author": "alapan",
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
     "http-proxy-middleware": "^3.0.5",
     "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }

@@ -11,8 +11,12 @@
 
 🔜 Phase 3 Preview: (Advanced Stuff)
 Next phase hum laenge:
+✅ Step 1: Auth Middleware Refactor
+✅ Step 2: Rate Limiting (DDOS se bachav)
 
-✅ Rate Limiting (DDOS se bachav)
+
+
+
 🌀 Load Balancing with multiple backends
 🧠 Caching (optional Redis/Memory)
 🔒 HTTPS support (for production)
