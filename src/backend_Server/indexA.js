@@ -1,6 +1,5 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
@@ -9,7 +8,17 @@ app.use(cookieParser());
 
 
 // routes
+const authRoutes = require('./routes/authRoutes');
+
+
+
+
 app.use('/auth', authRoutes);
+
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 
 // root
 app.get("/", (req, res) => {

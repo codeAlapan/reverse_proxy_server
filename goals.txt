@@ -1,80 +1,121 @@
-🔜 Phase 3: Clean Code Structure + Middleware
-Goal: Code ko modular banana, auth ko middleware mein shift karna
-
+✅ Phase 1: Basic Reverse Proxy Setup
+Goal: Create a simple working reverse proxy
 Includes:
 
-Middleware folder
+Express setup
 
-authMiddleware.js
+http-proxy-middleware
 
-Neat file separation (routes, utils, etc.)
+Route: /api → target
 
-Time: 1 day
+Basic working proxy test
+⏱️ Time: Done
+
+✅ Phase 2: Health Check + Smart Routing
+Goal: Load balancing + health check
+Includes:
+
+/health route on backend servers
+
+checkHealth() + Promise.allSettled()
+
+Filter only healthy servers
+
+Round-robin/random load balancer logic
+⏱️ Time: Done
+
+🔜 Phase 3: Clean Code Structure + Middleware
+Goal: Make code modular & readable
+Includes:
+
+middleware/ folder → auth, healthCheck
+
+routes/, utils/, config/
+
+Clean entry file
+⏱️ Time: 1 day
 
 🔜 Phase 4: MongoDB Auth System
-Goal: Real signup/login using MongoDB
-
+Goal: Real signup/login system
 Includes:
 
-/auth/signup, /auth/login
+/auth/signup, /auth/login routes
 
-Mongoose models
+bcrypt for password hashing
 
-Password hashing (bcrypt)
+JWT token-based login
 
-Time: 2-3 days
+Mongoose user model
+⏱️ Time: 2–3 days
 
 🔜 Phase 5: Advanced Proxy Features
-🧠 Part A: Rate Limiting (DDOS Protection)
-express-rate-limit for basic abuse protection
+🧠 5A: Rate Limiting (Basic)
+express-rate-limit middleware
 
+Apply per route/IP
 ⏱️ Time: 0.5 day
 
-⚖️ Part B: Load Balancing Logic
-Random/round-robin load balancing across multiple backends
+⚖️ 5B: Load Balancing Enhancements
+Round-robin or random switching
 
+Retry on failure to next backend
 ⏱️ Time: 1 day
 
-🚀 Part C: Caching Layer (Optional)
-In-memory or Redis for speed
+🚀 5C: Caching Layer (Optional but Powerful)
+Use Redis or memory cache
 
+Cache responses
+
+Sticky session logic (if needed)
 ⏱️ Time: 1 day
 
-🔐 Part D: HTTPS support
-Self-signed cert for dev, real cert for production (Let's Encrypt or similar)
+🔐 5D: HTTPS Support
+Dev: self-signed certs
 
+Prod: Let’s Encrypt
 ⏱️ Time: 1 day
 
-🔜 Phase 6: 💡 Dynamic Configuration (Final Feature)
-Goal: User enters config (URL, headers, etc.), reverse proxy sets up route dynamically
-
+🔜 Phase 6: Dynamic Configuration Engine
+Goal: Allow users to set their own proxy rules dynamically
 Includes:
 
-A form/UI or API to accept config
+API or UI for setting { path, target }
 
-Store config in memory or DB
+Store in memory or MongoDB
 
-Dynamically update proxy rules
+Dynamically update middleware
 
-Example: User sends { path: '/myapp', target: 'http://myapp.com' }
+Optional: Load from YAML/JSON
+⏱️ Time: 2–3 days
 
-Time: 2-3 days (depends on complexity)
+🧩 Bonus Phase (Advanced/Optional)
+📊 Logs & Monitoring
+Use winston + morgan for logs
 
-📅 Total Estimated Time (Realistically):
+Print request stats, errors
+⏱️ Time: 0.5 day
 
-Phase	Duration
-Phase 1	✅ Done
-Phase 2	✅ Done
-Phase 3	1 day
-Phase 4	2–3 days
-Phase 5	3.5 days
-Phase 6	2–3 days
-Total	~10 working days
-🧩 Bonus: Future Ideas (if time/motivation hai):
-Web dashboard to show request logs
+🚦 Per-user/IP Rate Limiting
+Use custom keys per JWT/IP
 
-Admin login to manage proxy routes
+Apply rate limits per user
+⏱️ Time: 0.5–1 day
 
-Analytics (number of hits per route)
+🔄 Retry-on-Failure Logic
+Smart retry if one server fails to respond
 
-Auto scaling (via Docker + Nginx combo)
+Use inside load balancer logic
+⏱️ Time: 0.5 day
+
+📦 Docker + NGINX Deployment
+Dockerize proxy + backend
+
+NGINX reverse proxy layer (prod ready)
+⏱️ Time: 1 day
+
+🔀 Custom LB Algorithm per User
+UI/API to pick "round robin", "random", "priority"
+
+Store in config, apply in runtime
+⏱️ Time: 1 day
+
