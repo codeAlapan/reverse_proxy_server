@@ -1,4 +1,5 @@
 const express = require('express');
+const bcrypt = require("bcrypt");
 const { generateToken } = require('../utils/jwtUtil');
 const authMiddleware = require('../middlewares/authMiddleware');
 const User = require('../models/User.js');
@@ -39,7 +40,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    const token = generateToken({ id: user._id });
+    const token = await generateToken({ id: user._id });
     res.json({ message: 'Login successful', token });
   } catch (err) {
      res.status(500).json({ message: 'Login failed', error: err.message });

@@ -1,10 +1,18 @@
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
-const rateLimiter = require('../backend_Server/middlewares/rateLimiter');
 const axios = require('axios');
+const dotenv = require("dotenv");
 
+
+const rateLimiter = require('../backend_Server/middlewares/rateLimiter');
+const connectDB = require('../backend_Server/config/db');
+
+
+dotenv.config();
+connectDB();
 
 const app = express();
+app.use(express.json());
 
 // Load Balancer targets
 const targets = [
@@ -54,6 +62,11 @@ const getNextTarget = () => {
   currentIndex = (currentIndex + 1) % healthyTargets.length;
   return target;
 };
+
+// routes
+const authRoutes = require("../backend_Server/routes/authRoutes.js");
+
+app.use("/auth",authRoutes);
 
 // Global middleware (rate-limiter)
 app.use(rateLimiter);

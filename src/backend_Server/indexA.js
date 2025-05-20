@@ -7,13 +7,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-// routes
-const authRoutes = require('./routes/authRoutes');
 
-
-
-
-app.use('/auth', authRoutes);
 
 app.get('/health', (req, res) => {
   res.status(200).send('OK');
