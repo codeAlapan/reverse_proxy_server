@@ -1,11 +1,29 @@
 const jwt = require('jsonwebtoken');
 
-const verifyToken = async (token) => await jwt.verify(token, process.env.JWT_SECRET);
+// Generate Token - Promise wrapper
+const generateToken = async (payload) => {
+  return new Promise((resolve, reject) => {
+    jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
+      if (err) {
+        reject(err); // this can be caught in a try-catch
+      } else {
+        resolve(token);
+      }
+    });
+  });
+};
 
-const generateToken = async (payload) =>
-  await jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
+// Verify Token - Promise wrapper
+const verifyToken = async (token) => {
+  return new Promise((resolve, reject) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(decoded);
+      }
+    });
+  });
+};
 
-  
-
-
-module.exports = {verifyToken,generateToken};
+module.exports = { generateToken, verifyToken };

@@ -1,12 +1,10 @@
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const axios = require('axios');
-const dotenv = require("dotenv");
-
+const dotenv = require('dotenv');
 
 const rateLimiter = require('../backend_Server/middlewares/rateLimiter');
 const connectDB = require('../backend_Server/config/db');
-
 
 dotenv.config();
 connectDB();
@@ -37,11 +35,13 @@ const checkHealth = async () => {
     })
   );
   // console.log(results);
-  healthyTargets = results.map((m)=>{
-    return m.value;
-  }).filter((r)=>{
-    return r != null;
-  })
+  healthyTargets = results
+    .map((m) => {
+      return m.value;
+    })
+    .filter((r) => {
+      return r != null;
+    });
   // console.log(healthyTargets);
 };
 
@@ -64,9 +64,11 @@ const getNextTarget = () => {
 };
 
 // routes
-const authRoutes = require("../backend_Server/routes/authRoutes.js");
+const authRoutes = require('../backend_Server/routes/authRoutes.js');
+const protectedRoutes = require('../backend_Server/routes/protectedRoutes.js');
 
-app.use("/auth",authRoutes);
+app.use('/auth', authRoutes);
+app.use('/user', protectedRoutes);
 
 // Global middleware (rate-limiter)
 app.use(rateLimiter);
