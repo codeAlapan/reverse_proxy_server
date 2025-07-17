@@ -66,9 +66,11 @@ const getNextTarget = () => {
 // routes
 const authRoutes = require('../backend_Server/routes/authRoutes.js');
 const protectedRoutes = require('../backend_Server/routes/protectedRoutes.js');
+const proxyConfigRoutes  = require("../backend_Server/routes/proxyConfigRoutes.js");
 
 app.use('/auth', authRoutes);
 app.use('/user', protectedRoutes);
+app.use("/proxy-configs", proxyConfigRoutes);
 
 // Global middleware (rate-limiter)
 app.use(rateLimiter);
