@@ -7,8 +7,9 @@
     "server-a": "nodemon src/backend_server/indexA.js",
     "server-b": "nodemon src/backend_server/indexB.js",
     "server-c": "nodemon src/backend_server/indexC.js",
+    "server-d": "nodemon src/backend_server/indexD.js",
     "proxy": "nodemon src/proxy_server/proxy_server.js",
-    "dev": "concurrently \"npm run server-a\" \"npm run server-b\" \"npm run server-c\" \"npm run proxy\""
+    "dev": "concurrently \"npm run server-a\" \"npm run server-b\" \"npm run server-c\" \"npm run server-d \" \"npm run proxy\""
   },
   "author": "alapan",
   "license": "ISC",
